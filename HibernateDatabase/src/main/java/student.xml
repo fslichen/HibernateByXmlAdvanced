@@ -5,16 +5,25 @@
 <hibernate-mapping>
 	<!-- Map a pojo to a table. -->
 	<class name="evolution.entity.Student" table="student">
-		 <!-- Config the primary key.-->
-		 <id name="id" column="id">
-		 	<!-- Set the primary key strategy as assigned. -->
-		 	<generator class="assigned"></generator>
-		 </id>
-		<!-- Name refers to the field in the pojo, while column refers to the column in the table -->
+		<!-- Config the primary key. -->
+		<id name="id" column="id">
+			<!-- Set the primary key strategy as assigned. -->
+			<generator class="assigned"></generator>
+		</id>
+		<!-- Name refers to the field in the pojo, while column refers to the column 
+			in the table -->
 		<property name="name" column="name" type="string" length="20"></property>
 		<property name="gender" column="gender" length="1"></property>
 		<property name="age" column="age"></property>
 		<property name="birthday" column="birthday" type="date"></property>
 		<property name="document" column="document" type="binary" length="255"></property>
+		<list name="addresses" table="address">
+			<!-- Foreign Key -->
+			<key column="student_id"></key>
+			<!-- list的索引字段（排序字段） -->
+			<list-index column="id"></list-index>
+			<!-- List元素 -->
+			<element column="city" type="string"></element>
+		</list>
 	</class>
 </hibernate-mapping>

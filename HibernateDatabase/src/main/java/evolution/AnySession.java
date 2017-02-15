@@ -7,6 +7,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class AnySession {// Singleton
+	public static final int id4Find = 1589;
+	public static final int id4Delete = 0;
 	private static SessionFactory sessionFactory;
 	private static Session session;
 

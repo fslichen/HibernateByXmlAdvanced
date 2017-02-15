@@ -1,17 +1,17 @@
 package evolution.application;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import evolution.AnySession;
 import evolution.entity.Student;
 
-public class Delete {
+public class EmbeddedList {
 	public static void main(String[] args) {
 		Session session = AnySession.getSession();
-		Student student = new Student();
-		student.setId(AnySession.id4Delete);
-		session.delete(student);
-		session.getTransaction().commit();
-		AnySession.close();// Stop the program.
+		Student student = (Student) session.get(Student.class, AnySession.id4Find);
+		List<String> addresses = student.getAddresses();
+		System.out.println(addresses);
 	}
 }
