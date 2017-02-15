@@ -2,6 +2,8 @@ package evolution.entity;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import lombok.Data;
 
@@ -13,5 +15,7 @@ public class Student {
 	private int age;
 	private Date birthday;
 	private byte[] document;
-	List<String> addresses;
+	private	List<String> cities;
+	private Set<String> states;
+	private Map<String, String> statesAndCities;
 }

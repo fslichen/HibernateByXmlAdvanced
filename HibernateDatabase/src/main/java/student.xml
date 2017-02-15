@@ -8,22 +8,36 @@
 		<!-- Config the primary key. -->
 		<id name="id" column="id">
 			<!-- Set the primary key strategy as assigned. -->
-			<generator class="assigned"></generator>
+			<generator class="assigned" />
 		</id>
 		<!-- Name refers to the field in the pojo, while column refers to the column 
 			in the table -->
-		<property name="name" column="name" type="string" length="20"></property>
-		<property name="gender" column="gender" length="1"></property>
-		<property name="age" column="age"></property>
-		<property name="birthday" column="birthday" type="date"></property>
-		<property name="document" column="document" type="binary" length="255"></property>
-		<list name="addresses" table="address">
-			<!-- Foreign Key -->
-			<key column="student_id"></key>
-			<!-- list的索引字段（排序字段） -->
-			<list-index column="id"></list-index>
-			<!-- List元素 -->
-			<element column="city" type="string"></element>
+		<property name="name" column="name" type="string" length="20" />
+		<property name="gender" column="gender" length="1" />
+		<property name="age" column="age" />
+		<property name="birthday" column="birthday" type="date" />
+		<property name="document" column="document" type="binary" length="255" />
+		<list name="cities" table="address">
+			<!-- Foreign Key in Address Table -->
+			<key column="student_id" />
+			<!-- Index for Sorting -->
+			<list-index column="id" />
+			<!-- Column in Address Table -->
+			<element column="city" type="string" />
 		</list>
+		<set name="states" table="address">
+			<!-- Foreign Key in Address Table -->
+			<key column="student_id" />
+			<!-- Column in Address Table -->
+			<element column="state" type="string" />
+		</set>
+		<map name="statesAndCities" table="address">
+			<!-- Foreign Key in Address Table -->
+			<key column="student_id" />
+			<!-- Key in Address Table -->
+			<map-key column="state" type="string" />
+			<!-- Value in Address Table -->
+			<element column="city" type="string" />
+		</map>
 	</class>
 </hibernate-mapping>

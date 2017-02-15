@@ -1,17 +1,17 @@
 package evolution.application;
 
-import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 
 import evolution.AnySession;
 import evolution.entity.Student;
 
-public class EmbeddedList {
+public class EmbeddedSet {
 	public static void main(String[] args) {
 		Session session = AnySession.getSession();
 		Student student = (Student) session.get(Student.class, AnySession.id4Find);
-		List<String> cities = student.getCities();
-		System.out.println(cities);
+		Set<String> states = student.getStates();
+		System.out.println(states);
 	}
 }
