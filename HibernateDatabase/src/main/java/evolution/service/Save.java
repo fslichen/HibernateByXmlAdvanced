@@ -5,12 +5,13 @@ import org.junit.Test;
 
 import evolution.AnySession;
 import evolution.entity.Student;
+import evolution.util.AnyUtil;
 
 public class Save {
 	public void anyMethod() {
 		// Create an object.
 		Student student = new Student();
-		student.setId(((Long) Math.round(Math.random() * 10000)).intValue());
+		student.setId(AnyUtil.randomInt());
 		student.setName("Elsa");
 		student.setAge(26);
 		student.setGender("F");
