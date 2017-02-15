@@ -19,8 +19,8 @@
 			name: 属性名称
 			column:	字段名称	
 		 -->
-		<property name="name" column="t_name"></property>
-		<property name="gender" column="t_gender"></property>
+		<property name="name" column="t_name" type="string" length="20"></property>
+		<property name="gender" column="t_gender" length="1"></property>
 		<property name="age" column="t_age"></property>
 	</class>
 
