@@ -18,6 +18,7 @@ public class FileStorage {
 		Session session = AnySession.getSession();
 		Student student = new Student();
 		student.setId(AnyUtil.randomInt());
+		student.setName("John");
 		student.setBirthday(new Date());
 		student.setDocument(IOUtils.toByteArray(new FileInputStream(new File("D:/document.txt"))));
 		session.save(student);

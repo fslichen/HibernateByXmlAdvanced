@@ -11,7 +11,7 @@ public class Save {
 		// Create an object.
 		Student student = new Student();
 		student.setId(AnyUtil.randomInt());
-		student.setName("Elsa");
+		student.setName("Snow White");
 		student.setAge(26);
 		student.setGender("F");
 		// Apply hibernate
