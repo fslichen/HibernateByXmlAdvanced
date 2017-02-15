@@ -13,7 +13,6 @@ public class RollBack {
 		student.setId(AnyUtil.randomInt());
 		student.setName("Chen");
 		try {
-			session.beginTransaction();
 			session.save(student);
 			int i = 1 / 0;
 			session.getTransaction().commit();

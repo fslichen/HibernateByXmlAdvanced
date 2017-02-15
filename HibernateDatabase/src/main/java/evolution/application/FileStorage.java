@@ -16,7 +16,6 @@ import evolution.util.AnyUtil;
 public class FileStorage {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		Session session = AnySession.getSession();
-		session.beginTransaction();
 		Student student = new Student();
 		student.setId(AnyUtil.randomInt());
 		student.setBirthday(new Date());

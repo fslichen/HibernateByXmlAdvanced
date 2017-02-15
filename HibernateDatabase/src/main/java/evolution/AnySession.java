@@ -6,7 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class AnySession {
+public class AnySession {// Singleton
 	private static SessionFactory sessionFactory;
 	private static Session session;
 
@@ -22,6 +22,7 @@ public class AnySession {
 		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		// Create session. The session has built-in CRUD methods.
 		session = sessionFactory.openSession();
+		session.beginTransaction();
 	}
 	
 	public static Session getSession() {

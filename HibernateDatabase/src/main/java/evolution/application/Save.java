@@ -16,7 +16,6 @@ public class Save {
 		student.setGender("F");
 		// Apply hibernate
 		Session session = AnySession.getSession();
-		session.beginTransaction();
 		session.save(student);
 		session.getTransaction().commit();
 		// Close resouces.
