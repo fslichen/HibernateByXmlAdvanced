@@ -1,14 +1,13 @@
-package evolution.service;
+package evolution.application;
 
 import org.hibernate.Session;
-import org.junit.Test;
 
 import evolution.AnySession;
 import evolution.entity.Student;
 import evolution.util.AnyUtil;
 
 public class RollBack {
-	public void anyMethod() {
+	public static void main(String[] args) {
 		Session session = AnySession.getSession();
 		Student student = new Student();
 		student.setId(AnyUtil.randomInt());

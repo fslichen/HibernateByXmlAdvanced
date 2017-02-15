@@ -14,5 +14,7 @@
 		<property name="name" column="t_name" type="string" length="20"></property>
 		<property name="gender" column="t_gender" length="1"></property>
 		<property name="age" column="t_age"></property>
+		<property name="birthday" column="t_birthday" type="date"></property>
+		<property name="document" column="t_document" type="binary" length="255"></property>
 	</class>
 </hibernate-mapping>
