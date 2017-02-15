@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 映射一个类
+		name: 类名称
+		table: 表名
+	  -->
+	<class name="evolution.entity.Student" table="t_student">
+		 <!-- 配置主键 -->
+		 <id name="id" column="t_id">
+		 	<!-- 主键策略 assigned: 程序需要赋值-->
+		 	<generator class="assigned"></generator>
+		 </id>
+		<!-- 
+			映射属性
+			name: 属性名称
+			column:	字段名称	
+		 -->
+		<property name="name" column="t_name"></property>
+		<property name="gender" column="t_gender"></property>
+		<property name="age" column="t_age"></property>
+	</class>
+
+</hibernate-mapping>
