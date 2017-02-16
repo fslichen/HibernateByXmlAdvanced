@@ -8,6 +8,7 @@
     		<generator class="increment"></generator>
     	</id>
     	<!-- Many to One Relationship -->
+    	<!-- Order is on the many side. -->
     	<!-- Options for cascade are:
     		save-update: Save or update customer when saving or updating order.
     		delete: Delete customer when deleting order.
