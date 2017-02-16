@@ -10,42 +10,30 @@ import evolution.entity.Employee;
 
 public class Many2Many {
 	public static void main(String[] args) {
-		// 打开Session
 		Session session = AnySession.getSession();
-
-		// 保存学生
-		Employee s1 = new Employee("小张");
-		Employee s2 = new Employee("小明");
-
-		// 保存老师
-		Company t1 = new Company("老张");
-		Company t2 = new Company("老徐");
-
-		// 建立双向关系
-		// 学生->老师
-		s1.setCompanies(new HashSet<>());
-		s1.getCompanies().add(t1);
-		s1.getCompanies().add(t2);
-		s2.setCompanies(new HashSet<>());
-		s2.getCompanies().add(t1);
-		s2.getCompanies().add(t2);
-
-		// 老师->学生
-		t1.setEmployees(new HashSet<>());
-		t1.getEmployees().add(s1);
-		t1.getEmployees().add(s2);
-		t2.setEmployees(new HashSet<>());
-		t2.getEmployees().add(s1);
-		t2.getEmployees().add(s2);
-
-		// 保存数据
-		session.save(s1);
-		session.save(s2);
-
-		// 提交事务
+		Employee employee0 = new Employee("Chen");
+		Employee employee1 = new Employee("Ling");
+		Company company0 = new Company("Oracle");
+		Company company1 = new Company("Microsoft");
+		// One Employee -> Many Companies
+		employee0.setCompanies(new HashSet<>());
+		employee0.getCompanies().add(company0);
+		employee0.getCompanies().add(company1);
+		employee1.setCompanies(new HashSet<>());
+		employee1.getCompanies().add(company0);
+		employee1.getCompanies().add(company1);
+		// One Company -> Many Employees
+		company0.setEmployees(new HashSet<>());
+		company0.getEmployees().add(employee0);
+		company0.getEmployees().add(employee1);
+		company1.setEmployees(new HashSet<>());
+		company1.getEmployees().add(employee0);
+		company1.getEmployees().add(employee1);
+		// Save
+		session.save(employee0);
+		session.save(employee1);
+		// Commit
 		session.getTransaction().commit();
-
-		// 关闭
 		AnySession.close();
 	}
 }	
