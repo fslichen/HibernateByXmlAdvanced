@@ -19,5 +19,7 @@
 		<mapping resource="order.xml"/>
 		<mapping resource="city.xml"/>
 		<mapping resource="state.xml"/>
+		<mapping resource="employee.xml"/>
+		<mapping resource="company.xml"/>
 	</session-factory>
 </hibernate-configuration>
