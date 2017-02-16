@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class City {
 	private int cityId;
-	private int stateId;// Don't forget to define a foreign key.
 	private String name;
+	// Hibernate does not require you to define a foreign key in the pojo.
+	// The city table comes with a automatic foreign key.
 	
 	public City(String name) {
 		this.name = name;
