@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<!-- Map a pojo to a table. -->
-	<class name="evolution.entity.Employee" table="employee">
-		<id name="employeeId" column="employee_id">
-			<generator class="increment" />
-		</id>
-		<property name="name" column="name" />
-		<set name="companies" table="company_employee" cascade="all">
-			<!-- Each employee applies for many companies, so each company holds a employee ID. -->
-			<key column="employee_id" />
-			<many-to-many class="evolution.entity.Company" column="company_id"/>
-		</set>
-	</class>
+    <class name="evolution.entity.Employee" table="employee">
+    	<id name="employeeId" column="employee_id">
+    		<generator class="increment"></generator>
+    	</id>
+    	<property name="name" column="name"></property>
+    	<!-- 配置多对多关系 
+    		table: 中间表的表名
+    	-->
+    	<set name="companies" table="company_employee" cascade="all">
+    		<!-- 当前对象所在中间表的外键 -->
+    		<key column="employee_id"></key>
+    		<!-- Set集合元素类型 -->
+    		<!-- column: 集合类型所在中间表的外键 -->
+    		<many-to-many class="evolution.entity.Company" column="company_id"></many-to-many>
+    	</set>
+    </class>
 </hibernate-mapping>

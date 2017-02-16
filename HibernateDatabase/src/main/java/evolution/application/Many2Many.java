@@ -1,7 +1,6 @@
 package evolution.application;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.HashSet;
 
 import org.hibernate.Session;
 
@@ -11,22 +10,42 @@ import evolution.entity.Employee;
 
 public class Many2Many {
 	public static void main(String[] args) {
+		// 打开Session
 		Session session = AnySession.getSession();
-		Employee employee0 = new Employee("Chen");
-		Employee employee1 = new Employee("Ling");
-		Set<Employee> employees = new LinkedHashSet<>();
-		employees.add(employee0);
-		employees.add(employee1);
-		Company company0 = new Company("Oracle");
-		Company company1 = new Company("Microsoft");
-		Set<Company> companies = new LinkedHashSet<>();
-		companies.add(company0);
-		companies.add(company1);
-		employee0.setCompanies(companies);
-		company0.setEmployees(employees);
-		company1.setEmployees(employees);
-		session.save(employee0);
+
+		// 保存学生
+		Employee s1 = new Employee("小张");
+		Employee s2 = new Employee("小明");
+
+		// 保存老师
+		Company t1 = new Company("老张");
+		Company t2 = new Company("老徐");
+
+		// 建立双向关系
+		// 学生->老师
+		s1.setCompanies(new HashSet<>());
+		s1.getCompanies().add(t1);
+		s1.getCompanies().add(t2);
+		s2.setCompanies(new HashSet<>());
+		s2.getCompanies().add(t1);
+		s2.getCompanies().add(t2);
+
+		// 老师->学生
+		t1.setEmployees(new HashSet<>());
+		t1.getEmployees().add(s1);
+		t1.getEmployees().add(s2);
+		t2.setEmployees(new HashSet<>());
+		t2.getEmployees().add(s1);
+		t2.getEmployees().add(s2);
+
+		// 保存数据
+		session.save(s1);
+		session.save(s2);
+
+		// 提交事务
 		session.getTransaction().commit();
+
+		// 关闭
 		AnySession.close();
 	}
 }	

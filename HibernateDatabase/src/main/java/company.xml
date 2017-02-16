@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-<!-- Map a pojo to a table. -->
-	<class name="evolution.entity.Company" table="company">
-		<id name="companyId" column="company_id">
-			<generator class="increment" />
-		</id>
-		<property name="name" column="name" />
-		<set name="employees" table="company_employee" inverse="true">
-			<!-- Each company receives one CV from many employees, so each employee holds a company ID. -->
-			<key column="company_id" />
-			<many-to-many class="evolution.entity.Employee" column="employee_id"/>
-		</set>
-	</class>
+    <class name="evolution.entity.Company" table="company">
+    	<id name="companyId" column="company_id">
+    		<generator class="increment"></generator>
+    	</id>
+    	<property name="name" column="name"></property>
+    	<set name="employees" table="company_employee" inverse="true">
+    		<key column="company_id"></key>
+    		<many-to-many class="evolution.entity.Employee" column="employee_id"></many-to-many>
+    	</set>
+    </class>
 </hibernate-mapping>
