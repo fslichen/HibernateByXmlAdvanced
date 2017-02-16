@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- Do not name the table name as order because order is a key word in MySql. -->
+    <class name="evolution.entity.Order" table="customer_order">
+    	<id name="orderId" column="order_id">
+    		<generator class="increment"></generator>
+    	</id>
+    	<!-- Many to One Relationship -->
+    	<!-- Options for cascade are:
+    		save-update: Save or update customer when saving or updating order.
+    		delete: Delete customer when deleting order.
+    		all: Combine save-update and delete.
+    		none: No cascade.
+    	 -->
+    	<many-to-one name="customer"
+    		 column="customer_id" 
+    		 class="evolution.entity.Customer"
+    		 cascade="none"/>
+    </class>
+</hibernate-mapping>
