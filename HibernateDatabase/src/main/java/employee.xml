@@ -7,14 +7,10 @@
     		<generator class="increment"></generator>
     	</id>
     	<property name="name" column="name"></property>
-    	<!-- 配置多对多关系 
-    		table: 中间表的表名
-    	-->
+    	<!-- Intermediate Table -->
     	<set name="companies" table="company_employee" cascade="all">
-    		<!-- 当前对象所在中间表的外键 -->
+    		<!-- Each employee can apply for many companies, so each company holds an employee ID as foreign key. -->
     		<key column="employee_id"></key>
-    		<!-- Set集合元素类型 -->
-    		<!-- column: 集合类型所在中间表的外键 -->
     		<many-to-many class="evolution.entity.Company" column="company_id"></many-to-many>
     	</set>
     </class>

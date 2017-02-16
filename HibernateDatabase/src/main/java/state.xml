@@ -10,6 +10,7 @@
 		</id>
 		<property name="name" column="name" />
 		<set name="cities" cascade="none">
+			<!-- Each state can have many cities, so each city holds a state ID as foreign key. -->
 			<!-- Plug in the column name in the database rather than the field name in the pojo. -->
 			<key column="state_id" />
 			<one-to-many class="evolution.entity.City"/>

@@ -15,6 +15,7 @@
     		all: Combine save-update and delete.
     		none: No cascade.
     	 -->
+    	 <!-- Each customer can have many orders, so each order hold a customer ID as foreign key. -->
     	<many-to-one name="customer"
     		 column="customer_id" 
     		 class="evolution.entity.Customer"

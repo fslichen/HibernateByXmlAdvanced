@@ -7,7 +7,9 @@
     		<generator class="increment"></generator>
     	</id>
     	<property name="name" column="name"></property>
+    	<!-- Intermediate Table -->
     	<set name="employees" table="company_employee" inverse="true">
+    		<!-- Each company can receive CVs from many employees, so each employee holds a company ID as foreign key. -->
     		<key column="company_id"></key>
     		<many-to-many class="evolution.entity.Employee" column="employee_id"></many-to-many>
     	</set>
