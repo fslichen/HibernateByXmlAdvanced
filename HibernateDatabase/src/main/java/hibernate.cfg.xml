@@ -17,5 +17,7 @@
 		<mapping resource="student.xml"/>
 		<mapping resource="customer.xml"/>
 		<mapping resource="order.xml"/>
+		<mapping resource="city.xml"/>
+		<mapping resource="state.xml"/>
 	</session-factory>
 </hibernate-configuration>
