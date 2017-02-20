@@ -6,8 +6,11 @@
 		<id name="wifeId" column="wife_id">
 			<generator class="increment"></generator>
 		</id>
+
 		<property name="name" column="name"></property>
+
 		<one-to-one name="husband" class="evolution.entity.Husband"
 			constrained="true"></one-to-one>
+
 	</class>
 </hibernate-mapping>

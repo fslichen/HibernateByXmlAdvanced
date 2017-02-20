@@ -3,15 +3,14 @@ package evolution.entity;
 public class Wife {
 	private int wifeId;
 	private String name;
+	private Husband husband;
 	
-	public Wife() {
-		
+	public Husband getHusband() {
+		return husband;
 	}
-	
-	public Wife(String name) {
-		this.name = name;
+	public void setHusband(Husband husband) {
+		this.husband = husband;
 	}
-	
 	public int getWifeId() {
 		return wifeId;
 	}
@@ -24,11 +23,4 @@ public class Wife {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Husband getHusband() {
-		return husband;
-	}
-	public void setHusband(Husband husband) {
-		this.husband = husband;
-	}
-	private Husband husband;
 }

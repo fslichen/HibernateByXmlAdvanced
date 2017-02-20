@@ -5,14 +5,12 @@ public class Husband {
 	private String name;
 	private Wife wife;
 	
-	public Husband() {
-		
+	public Wife getWife() {
+		return wife;
 	}
-	
-	public Husband(String name) {
-		this.name = name;
+	public void setWife(Wife wife) {
+		this.wife = wife;
 	}
-	
 	public int getHusbandId() {
 		return husbandId;
 	}
@@ -24,11 +22,5 @@ public class Husband {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public Wife getWife() {
-		return wife;
-	}
-	public void setWife(Wife wife) {
-		this.wife = wife;
 	}
 }
