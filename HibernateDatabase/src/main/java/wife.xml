@@ -9,6 +9,5 @@
 		<property name="name" column="name"></property>
 		<one-to-one name="persons" class="gz.itcast.e_one2one_double.Persons"
 			constrained="true"></one-to-one>
-
 	</class>
 </hibernate-mapping>
