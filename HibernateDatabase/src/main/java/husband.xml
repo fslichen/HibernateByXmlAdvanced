@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="evolution.entity.Wife" table="wife">
-		<id name="wifeId" column="wife_id">
+	<class name="evolution.entity.Husband" table="husband">
+		<id name="husbandId" column="husband_id">
 			<generator class="increment"></generator>
 		</id>
 		<property name="name" column="name"></property>
-		<one-to-one name="husband" class="evolution.entity.Husband"
+		<one-to-one name="wife" class="evolution.entity.Wife"
 			constrained="true"></one-to-one>
 	</class>
 </hibernate-mapping>

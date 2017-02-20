@@ -21,5 +21,7 @@
 		<mapping resource="state.xml"/>
 		<mapping resource="employee.xml"/>
 		<mapping resource="company.xml"/>
+		<mapping resource="husband.xml"/>
+		<mapping resource="wife.xml"/>
 	</session-factory>
 </hibernate-configuration>
